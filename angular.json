@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"shell_1": {
+		"shell_2": {
 			"projectType": "application",
 			"schematics": {
 				"@schematics/angular:class": {
@@ -38,7 +38,7 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
-						"outputPath": "dist/shell_1",
+						"outputPath": "dist/shell_2",
 						"index": "src/index.html",
 						"main": "src/main.ts",
 						"polyfills": [
@@ -88,24 +88,24 @@
 					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "shell_1:build:production",
+							"browserTarget": "shell_2:build:production",
 							"extraWebpackConfig": "webpack.prod.config.js"
 						},
 						"development": {
-							"browserTarget": "shell_1:build:development"
+							"browserTarget": "shell_2:build:development"
 						}
 					},
 					"defaultConfiguration": "development",
 					"options": {
-						"port": 4200,
-						"publicHost": "http://localhost:4200",
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
 						"extraWebpackConfig": "webpack.config.js"
 					}
 				},
 				"extract-i18n": {
 					"builder": "ngx-build-plus:extract-i18n",
 					"options": {
-						"browserTarget": "shell_1:build",
+						"browserTarget": "shell_2:build",
 						"extraWebpackConfig": "webpack.config.js"
 					}
 				},

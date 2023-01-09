@@ -5,10 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'Annonymous Shop';
-  shopName = '';
+  title = 'Shop Platform';
+  shopName = 'Shop Platform';
   form: any = {};
-  disableShopInfo: boolean = false;
+  disableShopInfo: boolean = true;
 
   sendFormInfo() {
     window.dispatchEvent(
@@ -32,24 +32,24 @@ export class AppComponent {
   }
 
   fillData(event: any) {
-    this.disableShopInfo = true;
-    this.title = 'Smart Shop';
-    this.shopName = 'Smart Shop';
+    this.disableShopInfo = false;
+    this.title = 'Shop Platform';
+    this.shopName = 'Shop Platform';
     this.form = {
       shopName: this.shopName,
-      shopId: '123456',
-      shopAddress: '1234 Main St, Anytown, USA',
-      shopPhone: '123-456-7890',
-      clientName: 'John Doe',
-      clientId: '098765634',
+      shopId: '999999',
+      shopAddress: 'web based',
+      shopPhone: 'N/A',
+      clientName: 'Web Client',
+      clientId: '192.123.12.1.92',
     };
     this.sendFormInfo();
   }
 
   emptyData(event: any) {
-    this.title = 'Annonymous Shop';
-    this.shopName = '';
-    this.disableShopInfo = false;
+    this.title = 'Shop Platform';
+    this.shopName = 'Shom Platform';
+    this.disableShopInfo = true;
     this.form = {};
     this.sendFormInfo();
   }

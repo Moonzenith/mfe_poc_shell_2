@@ -1,5 +1,4 @@
 body {
-  font-family: 'Comfortaa', cursive;
   padding-top: 80px;
   padding-left: 10px;
 }
@@ -9,7 +8,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(37, 58, 180);
 
   position: fixed;
   top: 0;
