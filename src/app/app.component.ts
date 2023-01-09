@@ -5,28 +5,52 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'shell_1';
+  title = 'Annonymous Shop';
+  shopName = '';
+  form: any = {};
+  disableShopInfo: boolean = false;
+
+  sendFormInfo() {
+    window.dispatchEvent(
+      new CustomEvent('addOriginData', {
+        detail: {
+          origin: this.shopName,
+          title: this.title,
+          disableShopInfo: this.disableShopInfo,
+          form: this.form,
+        },
+      })
+    );
+  }
 
   constructor() {
-    window.addEventListener('ready', (readyEvent) => {
-      console.log(readyEvent)
-      Promise.resolve()
-        .then(() => {
-          window.dispatchEvent(new CustomEvent('addOriginData', {
-            detail: {
-              origin: 'shell_1',
-              form: {
-                title: 'Shell 1 Calling Bitch!',
-                from: 'MDE',
-                to: 'LHR',
-                user: {
-                  userName: 'hiddenUserName',
-                  token: '1234567890xaBcD,987654321;neededKeyOrInfo'
-                }
-              }
-            }
-          }))
-        })
-    })
+    window.addEventListener('ready', (readyEvent: any) => {
+      Promise.resolve().then(() => {
+        this.sendFormInfo();
+      });
+    });
+  }
+
+  fillData(event: any) {
+    this.disableShopInfo = true;
+    this.title = 'Smart Shop';
+    this.shopName = 'Smart Shop';
+    this.form = {
+      shopName: this.shopName,
+      shopId: '123456',
+      shopAddress: '1234 Main St, Anytown, USA',
+      shopPhone: '123-456-7890',
+      clientName: 'John Doe',
+      clientId: '098765634',
+    };
+    this.sendFormInfo();
+  }
+
+  emptyData(event: any) {
+    this.title = 'Annonymous Shop';
+    this.shopName = '';
+    this.disableShopInfo = false;
+    this.form = {};
+    this.sendFormInfo();
   }
 }

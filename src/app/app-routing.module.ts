@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { loadRemoteModule } from '@angular-architects/module-federation';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: 'flights',
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'shop',
     loadChildren: () =>
       loadRemoteModule({
         type: 'manifest',
         remoteName: 'mfe1',
-        exposedModule: './Module',
-      }).then((m) => m.FlightsModule),
+        exposedModule: './Shop',
+      }).then((m) => m.ShopModule),
   },
 ];
 
